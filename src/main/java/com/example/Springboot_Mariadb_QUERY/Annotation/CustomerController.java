@@ -42,6 +42,14 @@ public class CustomerController
 		return crepo.findById(id);
 	}
 	
+	@GetMapping("/delid/{id}")
+	public String delId(@PathVariable int id)
+	{
+		Customer c=crepo.findById(id).get();
+		crepo.delete(c);
+		return "Data Deleted";
+	}
+	
 	@GetMapping("/byid/{id}")
 	public Customer getById(@PathVariable int id)
 	{
